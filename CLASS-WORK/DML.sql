@@ -1,23 +1,58 @@
--- DML data manipulation language
--- insert update delete
+-- DML insert update delete
+select * from employee;
+use finance;
+insert into employee(name,id,salary,phone_no) values
+("xyz",101,"10000","785632");
+insert into employee values
+(103,"abc","5698741238",28000),
+(104,"pqr","5698741239",25000),
+(105,"xyz","5298741236",22000);
+delete from employee
+where id=111;
+update employee
+set salary=30000
+where id=103;
 
-select * from employee_new;
-describe employee_new;
-insert into employee_new values
-(2,"NAN","Halvad",2000,20);
+update employee
+set name="hello"
+where name="pqr";
 
-insert into employee_new(salary,age,name,id) values
-(3000,80,"OEI",1);
+update employee
+set id=103
+where id=102;
+
+update employee
+set id=111
+where id=102;
+
+delete from employee
+where id=111;
+
+insert into employee(name,id,phone_no) values
+("xyz",110,"785635");
+
+update employee
+set salary=15000
+where id=110;
+
+update employee
+set department="marketing"
+where id=101;
+
+update employee
+set department="HR"
+where id=103;
+
+update employee
+set department="CC"
+where id=104;
+update employee
+set department="marketing"
+where id=105;
+update employee
+set department="HR"
+where id=111;
 
 
--- update
-   update employee_new
-   set name="para"
-   where name="NAN";
-   
--- delete
-   delete from employee_new
-   where id=2;
-   
-   
-   
+insert into employee(id,name) values
+(111,"zyx");

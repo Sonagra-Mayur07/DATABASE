@@ -6,9 +6,9 @@ name text not null,
 Branch text
 );
 
-select * from student_new;
 
-truncate table student_new;
+3.
+.truncate table student_new;
 
 insert into student_new(Rollno,name,Branch) values
 (1,"jay","Computer"),

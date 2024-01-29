@@ -1,93 +1,73 @@
-create database MWF_12_PHP;
-use MWF_12_PHP;
-create table student(
-id varchar(5) primary key,
-name text not null,
-phone_no int,
-DOB date,
-pr int check (pr>0)
-);
+-- comment line
+-- create database
+-- DDL create alter drop truncate
+create database finance;
 
-insert into student (id,name,phone_no,DOB,pr)values
-(1,"mayur",878034,"2004-07-29",19);
+create database employee_data;
 
-select*from student;
+drop database employee_data;
 
-insert into student(id,name,phone_no,DOB,pr)values
-(2,"Raviraj",123456,"1980-05-15",50);
-
--- DDL-create,alter,drop,truncate
-
+show databases;
+use finance;
 create table employee(
 id int primary key,
 name text not null,
-address varchar(50),
-salary int default 0,
-age int check(age>18)
+address varchar(25),
+phone_no varchar(10) unique
 );
-
-select*from employee;
-
-insert into employee(id,name,address,salary,age) values
-(1,"ABC","morbi",2000,19);
-
-create table employee_new(
+create table employee1(
 id int primary key,
 name text not null,
-address varchar(50),
-salary int default 0,
-age int check(age>18)
+address varchar(25),
+phone_no varchar(10) unique
 );
 
-insert into employee_new(id,name,address,salary,age) values
-(2,"DEB","morbi",2500,26);
+insert into employee1 (id,name,address,phone_no)values
+(101,"xyz","nikol","9879654123"),
+(102,"abc","nikol","5632145698");
+-- not null: you can't leave empty record for this coloumn
+-- primary key: shoudn't duplicate, not null
+-- unique: you can leave record as null, duplicate entry is now allowed
+insert into employee (id,name,address,phone_no,salary)values
+(104,"xyz","nikol","9879654124",10000);
+select * from  employee; -- dql
 
--- alter
--- (1)rename table name
-    
-    alter table employee rename to employee_new;
-    select * from employee_new;
-    
-    
--- (2)to add new coloumn
-    
-	alter table employee_new
-    drop depatment varchar(10);
-    
-    
--- (3)to remove coloumn
-    
-	alter table employee_new
-    drop depatment ;
+-- alter add coloumn
+alter table employee
+add salary int default 0;
 
-    -- (4) to chnage datatype of coloumn
-    
-		alter table employee_new
-         modify name varchar(50);
-           
-    
-    -- truncate
-    truncate table employee_new;
-    
-    -- drop
-    drop table employee1;
-    select*from employee1;
-    
-    -- show databases;
-    
-    describe employee_new;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+alter table employee
+add city varchar(5);
+
+-- alter drop coloumn
+alter table employee
+drop Salary;
+
+-- alter modify coloumn
+alter table employee
+modify salary varchar(5);
+alter table employee
+add department varchar(10);
+
+alter table employee
+modify salary int;
+
+ drop table employee1;
+ truncate table employee;
+describe employee;
+
+update employee
+set city="nikol"
+where id=101;
+
+update employee
+set city="CG"
+where id=103;
+
+update employee
+set city="nikol"
+where id=104;
+
+update employee 
+set city="CTM"
+where id=111;
