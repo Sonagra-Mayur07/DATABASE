@@ -18,7 +18,6 @@ insert into student101 values
 (4,"pqr");
 
 insert into result values
-(2,896,"pass"),
 (1,482,"pass"),
 (5,252,"fail");
 
@@ -27,6 +26,8 @@ insert into result values
 -- innerjoin
 
 select s.id,s.name,r.result from student101 as s inner join result as r on s.id=r.r_id;
+
+select * from student101 inner join result on student101.id=result.r_id;
 
 -- left join
 

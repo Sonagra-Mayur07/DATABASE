@@ -11,5 +11,4 @@ create table salary(
 id int ,
 salary int,
 foreign key salary(id) references employee(id)
-
 );
