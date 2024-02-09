@@ -46,14 +46,3 @@ for each row
 insert into history2 values(new.id,new.name,curtime());
 
 insert into history1 value(105,"ABC");
-
-
-
-
-
-
-
-
-
-
-
